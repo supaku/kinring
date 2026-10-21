@@ -1,0 +1,17 @@
+{
+  "id": "example-ring",
+  "name": "Example ring",
+  "url": "https://ring.example/ring",
+  "description": "A ring of three sites, for trying kinring out.",
+  "members": [
+    {
+      "id": "alpha",
+      "name": "Alpha",
+      "url": "https://alpha.example",
+      "feed": "https://alpha.example/feed.xml",
+      "button": { "src": "https://alpha.example/button.png", "src2x": "https://alpha.example/button@2x.png", "alt": "Alpha" }
+    },
+    { "id": "beta", "name": "Beta", "url": "https://beta.example" },
+    { "id": "gamma", "name": "Gamma", "url": "https://gamma.example/blog" }
+  ]
+}

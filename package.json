@@ -1,0 +1,76 @@
+{
+  "name": "kinring",
+  "version": "0.1.0",
+  "description": "Build, host, and join webrings. Framework-agnostic core, a web component banner, a fetch-style server handler, and a Payload CMS collection.",
+  "license": "MIT",
+  "author": "Mark Kropf",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supaku/kinring.git"
+  },
+  "homepage": "https://github.com/supaku/kinring#readme",
+  "bugs": "https://github.com/supaku/kinring/issues",
+  "keywords": [
+    "webring",
+    "indieweb",
+    "88x31",
+    "payload",
+    "payloadcms",
+    "personal-site"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20.18.1"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./server": {
+      "types": "./dist/server/index.d.ts",
+      "import": "./dist/server/index.js"
+    },
+    "./embed": {
+      "types": "./dist/embed/index.d.ts",
+      "import": "./dist/embed/index.js"
+    },
+    "./payload": {
+      "types": "./dist/payload/index.d.ts",
+      "import": "./dist/payload/index.js"
+    },
+    "./embed.js": "./dist/embed.js"
+  },
+  "scripts": {
+    "build": "tsup && node scripts/write-embed.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit",
+    "ci": "pnpm typecheck && pnpm test && pnpm build",
+    "prepublishOnly": "pnpm ci",
+    "prepare": "pnpm build"
+  },
+  "peerDependencies": {
+    "payload": ">=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "payload": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "payload": "3.91.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  },
+  "packageManager": "pnpm@11.23.0"
+}
