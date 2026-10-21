@@ -2,8 +2,8 @@
 //
 // Serves /ring/prev, /ring/next, /ring/random, /ring/ring.json,
 // /ring/members.opml, and /ring/embed.js from a JSON file.
-import { createRingHandler } from 'kinring/server'
-import { validateRing } from 'kinring'
+import { createRingHandler } from '@supaku/kinring/server'
+import { validateRing } from '@supaku/kinring'
 import raw from './ring.json' with { type: 'json' }
 
 const { ring, issues } = validateRing(raw)

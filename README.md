@@ -1,7 +1,7 @@
 # kinring
 
 [![CI](https://github.com/supaku/kinring/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/supaku/kinring/actions/workflows/ci.yml)
-[![npm](https://img.shields.io/npm/v/kinring)](https://www.npmjs.com/package/kinring)
+[![npm](https://img.shields.io/npm/v/@supaku/kinring)](https://www.npmjs.com/package/@supaku/kinring)
 [![License: MIT](https://img.shields.io/github/license/supaku/kinring)](./LICENSE)
 
 > Build, host, and join webrings. A small TypeScript library with no runtime
@@ -30,14 +30,14 @@ Sibling of [kith](https://github.com/supaku/kith). Kith and kin.
 | You want to…                                         | Use                                     |
 | ---------------------------------------------------- | --------------------------------------- |
 | join a ring someone else runs                        | [the embed snippet](#joining-a-ring)    |
-| run a ring from a JSON file on any host              | `kinring` + `kinring/server`            |
-| run a ring and manage members in Payload CMS         | add `kinring/payload`                   |
-| compute prev/next/random yourself                    | `kinring` (core)                        |
+| run a ring from a JSON file on any host              | `@supaku/kinring` + `@supaku/kinring/server`            |
+| run a ring and manage members in Payload CMS         | add `@supaku/kinring/payload`                   |
+| compute prev/next/random yourself                    | `@supaku/kinring` (core)                        |
 
 Node 20.18.1 or newer. ESM only.
 
 ```sh
-pnpm add kinring
+pnpm add @supaku/kinring
 ```
 
 ---
@@ -118,7 +118,7 @@ under your ring's path in any framework that speaks the Fetch API.
 Next.js App Router, at `app/ring/[[...action]]/route.ts`:
 
 ```ts
-import { createRingHandler } from 'kinring/server'
+import { createRingHandler } from '@supaku/kinring/server'
 import ring from './ring.json'
 
 const handler = createRingHandler({ loadRing: () => ring })
@@ -147,7 +147,7 @@ the same function.
 The ring's home (`ring.url`) is yours to design. The core exports help:
 
 ```ts
-import { embedSnippet, navigationUrls, ringFeed } from 'kinring'
+import { embedSnippet, navigationUrls, ringFeed } from '@supaku/kinring'
 
 embedSnippet(ring, { memberId: 'truman' }) // the HTML a member pastes
 navigationUrls(ring, 'truman')              // { prev, next, random, index }
@@ -162,7 +162,7 @@ Manage members in the admin panel instead of a JSON file.
 
 ```ts
 // payload.config.ts
-import { createRingMembersCollection } from 'kinring/payload'
+import { createRingMembersCollection } from '@supaku/kinring/payload'
 
 export default buildConfig({
   collections: [
@@ -180,8 +180,8 @@ The collection has `name`, `slug`, `url`, `description`, `feed`, `button`
 // app/ring/[[...action]]/route.ts
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
-import { createRingHandler } from 'kinring/server'
-import { loadRingFromPayload } from 'kinring/payload'
+import { createRingHandler } from '@supaku/kinring/server'
+import { loadRingFromPayload } from '@supaku/kinring/payload'
 
 export const GET = createRingHandler({
   loadRing: async () =>
@@ -205,7 +205,7 @@ import {
   findMember, neighbors, pick, navigationUrls,
   ringFeed, ringOpml, validateRing, embedSnippet, plainSnippet,
   siteKey, sameSite,
-} from 'kinring'
+} from '@supaku/kinring'
 ```
 
 - `findMember(ring, { id?, url? })`: by id first, then by site. A member
