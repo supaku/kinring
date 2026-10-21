@@ -1,6 +1,6 @@
 {
   "name": "kinring",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Build, host, and join webrings. Framework-agnostic core, a web component banner, a fetch-style server handler, and a Payload CMS collection.",
   "license": "MIT",
   "author": "Mark Kropf",
@@ -54,8 +54,7 @@
     "test:watch": "vitest",
     "lint": "tsc --noEmit",
     "ci": "pnpm typecheck && pnpm test && pnpm build",
-    "prepublishOnly": "pnpm ci",
-    "prepare": "pnpm build"
+    "prepublishOnly": "pnpm ci"
   },
   "peerDependencies": {
     "payload": ">=3.0.0"
