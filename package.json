@@ -1,6 +1,6 @@
 {
   "name": "@supaku/kinring",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Build, host, and join webrings. Framework-agnostic core, a web component banner, a fetch-style server handler, and a Payload CMS collection.",
   "license": "MIT",
   "author": "Mark Kropf",
