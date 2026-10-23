@@ -21,7 +21,10 @@ jobs:
           cache: pnpm
           registry-url: https://registry.npmjs.org
       - run: pnpm install --frozen-lockfile
-      - run: pnpm ci
+      # Not `pnpm ci`: pnpm treats that as an install alias and never runs the script.
+      - run: pnpm run verify
+      - name: Check the build is in the package
+        run: test -f dist/index.js && test -f dist/server/index.js && test -f dist/payload/index.js && test -f dist/embed.js
       - name: Check tag matches package version
         run: |
           pkg=$(node -p "require('./package.json').version")

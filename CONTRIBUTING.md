@@ -12,7 +12,7 @@ pnpm test          # vitest, no network, no database
 pnpm build         # tsup → dist/, plus dist/embed.js
 ```
 
-`pnpm ci` runs typecheck, tests, and build, which is what CI runs.
+`pnpm run verify` runs typecheck, tests, and build, which is what CI runs.
 
 ## Project layout
 
@@ -36,4 +36,4 @@ See [README.md → Layout](./README.md#layout).
 ## Pull requests
 
 - Open against `main`. One change per PR.
-- `pnpm ci` must pass.
+- `pnpm run verify` must pass.
