@@ -39,6 +39,4 @@ jobs:
       # (publishing access → trusted publisher → GitHub Actions, repo supaku/kinring,
       # workflow release.yml). npm 11.5+ is required; Node 24 ships it.
       - name: Publish to npm
-        # Does not fail the release until trusted publishing is configured.
-        continue-on-error: true
         run: npm publish --provenance --access public
